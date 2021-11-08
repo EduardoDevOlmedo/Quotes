@@ -1,0 +1,116 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto Mono', monospace;
+  display: grid;
+  height: 100vh;
+  place-content: center;
+  background: black;
+  padding: 10px;
+  .atr {
+    color: white;
+    margin: 10px 20px 30px 0;
+  }
+  p.atr {
+    text-align: center;
+  }
+}
+
+#quote-container {
+  min-width: 200px;
+  max-width: 500px;
+  font-size: 12px;
+  padding: 10px;
+  display: grid;
+  align-items: center;
+  background: #ffffff10;
+  border-radius: 10px;
+  backdrop-filter: blur(12px);
+  #text, #author {
+    line-height: 1.5;
+    color: #DBE9EE;
+    margin: 5px;
+  }
+  #author {
+    text-align: end;
+  }
+  button {
+    display: grid;
+    place-content: center;
+    font-family: 'Roboto Mono', monospace;
+    padding: 6px;
+    background: #166088;
+    color: white;
+    border: none;
+    outline: none;
+    height: 50px;  
+    cursor: pointer;
+    border-radius: 6px;
+  }
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    img {
+      filter: invert(90%) sepia(15%) saturate(173%) hue-rotate(164deg) brightness(104%) contrast(87%);
+    }
+  }
+  .opinions button {
+    margin: 5px;
+  }
+  .opinions {
+    display: flex;
+    align-items: center;
+    .dislike img {
+      transition: cubic-bezier(0,1.5,1,1.5) 0.3s;
+      height: 30px;
+      transform: rotate(250deg);
+    }
+    .like img:hover {
+      animation: beat .5s infinite alternate;
+	    transform-origin: center;
+    }
+    .dislike, .like  {
+      transition: cubic-bezier(0,1.5,1,1.5) 0.3s;
+    }
+    .dislike img:hover {
+      transform: rotate(360deg);
+      transition: cubic-bezier(0,1.5,1,1.5) 1s;
+    }
+    .dislike:focus, .like:focus {
+      background: rgb(68, 12, 12);
+      height: 25px;
+      transition: cubic-bezier(0,1.5,1,1.5) 0.3s;
+    }
+    .dislike:focus img, .like:focus img {
+      height: 20px;
+      transform: rotate(360deg);
+      transition: cubic-bezier(0,1.5,1,1.5) 0.3s;
+    }
+  }
+}
+#new-quote{
+  transition: cubic-bezier(0,1.5,1,1.5) 0.3s;
+}
+
+#new-quote:hover {
+  transform: scale(0.7);
+  transition: cubic-bezier(0,1.5,1,1.5) 0.3s;
+}
+
+@keyframes beat{
+	to { transform: scale(1.4);
+    filter: invert(13%) sepia(81%) saturate(7270%) hue-rotate(2deg) brightness(95%) contrast(114%);
+  }
+}
+
+@media (min-width: 900px) { 
+  #quote-container {
+    font-size: 18px;
+  }
+}
